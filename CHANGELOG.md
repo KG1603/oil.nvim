@@ -1,5 +1,101 @@
 # Changelog
 
+## [2.11.0](https://github.com/stevearc/oil.nvim/compare/v2.10.0...v2.11.0) (2024-07-01)
+
+
+### Features
+
+* case insensitive sorting ([#429](https://github.com/stevearc/oil.nvim/issues/429)) ([2077cc3](https://github.com/stevearc/oil.nvim/commit/2077cc3358f327aca16c376cdde6ea0b07f14449))
+* rename experimental_watch_for_changes -&gt; watch_for_changes ([c7c7ce5](https://github.com/stevearc/oil.nvim/commit/c7c7ce5bd47030ee9c60a859f25695647610b8bd))
+* support preview from floating window ([#403](https://github.com/stevearc/oil.nvim/issues/403)) ([59b3dab](https://github.com/stevearc/oil.nvim/commit/59b3dab6f79e147a0d694ee72c26ae883d323340))
+
+
+### Bug Fixes
+
+* bug in buffer rendering race condition handling ([f6df58a](https://github.com/stevearc/oil.nvim/commit/f6df58ad370f45dbc18c42ffbaefbcf27df14036))
+* correctly check group permissions in unix ([#428](https://github.com/stevearc/oil.nvim/issues/428)) ([65c53db](https://github.com/stevearc/oil.nvim/commit/65c53dbe4f2140236590a7568a5f22a77d16be39))
+* increase loading display delay to avoid flicker ([#424](https://github.com/stevearc/oil.nvim/issues/424)) ([4c574cf](https://github.com/stevearc/oil.nvim/commit/4c574cf4a2de736d2662d52ce086d8bdf87c49df))
+
+## [2.10.0](https://github.com/stevearc/oil.nvim/compare/v2.9.0...v2.10.0) (2024-06-16)
+
+
+### Features
+
+* add copy filename action ([#391](https://github.com/stevearc/oil.nvim/issues/391)) ([bbc0e67](https://github.com/stevearc/oil.nvim/commit/bbc0e67eebc15342e73b146a50d9b52e6148161b))
+* keymap actions can be parameterized ([96368e1](https://github.com/stevearc/oil.nvim/commit/96368e13e9b1aaacc570e4825b8787307f0d05e1))
+
+
+### Bug Fixes
+
+* change unknown action name from error to notification ([e5eb20e](https://github.com/stevearc/oil.nvim/commit/e5eb20e88fc03bf89f371032de77f176158b41d3))
+* error opening command window from oil float ([#378](https://github.com/stevearc/oil.nvim/issues/378)) ([06a19f7](https://github.com/stevearc/oil.nvim/commit/06a19f77f1a1da37b675635e6f9c5b5d50bcaacd))
+* hack around glob issues in LSP rename operations ([#386](https://github.com/stevearc/oil.nvim/issues/386)) ([e5312c3](https://github.com/stevearc/oil.nvim/commit/e5312c3a801e7274fa14e6a56aa10a618fed80c3))
+* incorrect default config actions ([#414](https://github.com/stevearc/oil.nvim/issues/414)) ([c82b26e](https://github.com/stevearc/oil.nvim/commit/c82b26eb4ba35c0eb7ec38d88dd400597fb34883))
+* notify when changing the current directory ([#406](https://github.com/stevearc/oil.nvim/issues/406)) ([18272ab](https://github.com/stevearc/oil.nvim/commit/18272aba9d00a3176a5443d50dbb4464acc167bd))
+* throw error on vim.has call within the lsp/workspace.lua ([#411](https://github.com/stevearc/oil.nvim/issues/411)) ([61f1967](https://github.com/stevearc/oil.nvim/commit/61f1967222365474c6cf7953c569cc94dbcc7acd))
+* vim.notify call error ([76bfc25](https://github.com/stevearc/oil.nvim/commit/76bfc25520e4edc98d089d023b4ed06013639849))
+
+## [2.9.0](https://github.com/stevearc/oil.nvim/compare/v2.8.0...v2.9.0) (2024-05-16)
+
+
+### Features
+
+* can restore Oil progress window when minimized ([fa3820e](https://github.com/stevearc/oil.nvim/commit/fa3820ebf1e8ccf5c7c0f3626d499b2c1aa8bc50))
+* experimental support for git operations ([#290](https://github.com/stevearc/oil.nvim/issues/290)) ([1f05774](https://github.com/stevearc/oil.nvim/commit/1f05774e1c2dbc1940104b5c950d5c7b65ec6e0b))
+
+
+### Bug Fixes
+
+* duplicate create actions ([#334](https://github.com/stevearc/oil.nvim/issues/334)) ([354c530](https://github.com/stevearc/oil.nvim/commit/354c53080a6d7f4f0b2f0cc12e53bede2480b9e5))
+* error when opening files from floating oil window ([#355](https://github.com/stevearc/oil.nvim/issues/355)) ([2bc56ad](https://github.com/stevearc/oil.nvim/commit/2bc56ad68afd092af1b2e77dd5d61e156938564c))
+* git mv errors when moving empty directory ([#358](https://github.com/stevearc/oil.nvim/issues/358)) ([6a7a10b](https://github.com/stevearc/oil.nvim/commit/6a7a10b6117aface6a25b54906140ad4f7fdabfc))
+* gracefully handle new dirs with trailing backslash on windows ([#336](https://github.com/stevearc/oil.nvim/issues/336)) ([be0a1ec](https://github.com/stevearc/oil.nvim/commit/be0a1ecbf0541692a1b9b6e8ea15f5f57db8747a))
+* icon column highlight parameter ([#366](https://github.com/stevearc/oil.nvim/issues/366)) ([752563c](https://github.com/stevearc/oil.nvim/commit/752563c59d64a5764cc0743d4fa0aac9ae4a2640))
+* race condition when entering oil buffer ([#321](https://github.com/stevearc/oil.nvim/issues/321)) ([c86e484](https://github.com/stevearc/oil.nvim/commit/c86e48407b8a45f9aa8acb2b4512b384ea1eec84))
+* **ssh:** bad argument when editing files over ssh ([#370](https://github.com/stevearc/oil.nvim/issues/370)) ([aa0c00c](https://github.com/stevearc/oil.nvim/commit/aa0c00c7fd51982ac476d165cd021f348cf5ea71))
+* **ssh:** config option to pass extra args to SCP ([#340](https://github.com/stevearc/oil.nvim/issues/340)) ([3abb607](https://github.com/stevearc/oil.nvim/commit/3abb6077d7d6b09f5eb794b8764223b3027f6807))
+* **ssh:** garbled output when directory has broken symlinks ([bcfc0a2](https://github.com/stevearc/oil.nvim/commit/bcfc0a2e01def5019aa14fac2fc6de20dedb6d3d))
+* support visual mode when preview window is open ([#315](https://github.com/stevearc/oil.nvim/issues/315)) ([f41d7e7](https://github.com/stevearc/oil.nvim/commit/f41d7e7cd8e4028b03c35d847b4396790ac8bb2d))
+* **windows:** convert posix paths before matching LSP watch globs ([#374](https://github.com/stevearc/oil.nvim/issues/374)) ([f630887](https://github.com/stevearc/oil.nvim/commit/f630887cd845a7341bc16488fe8aaecffe3aaa8a))
+* **windows:** file operation preview uses only backslash path separator ([#336](https://github.com/stevearc/oil.nvim/issues/336)) ([96f0983](https://github.com/stevearc/oil.nvim/commit/96f0983e754694e592d4313f583cd31eaebfa80d))
+* **windows:** navigating into drive letter root directories ([#341](https://github.com/stevearc/oil.nvim/issues/341)) ([f3a31eb](https://github.com/stevearc/oil.nvim/commit/f3a31eba24587bc038592103d8f7e64648292115))
+* **windows:** treat both backslash and frontslash as path separators ([#336](https://github.com/stevearc/oil.nvim/issues/336)) ([3b3a6b2](https://github.com/stevearc/oil.nvim/commit/3b3a6b23a120e69ddc980c9d32840ecd521fbff9))
+
+## [2.8.0](https://github.com/stevearc/oil.nvim/compare/v2.7.0...v2.8.0) (2024-04-19)
+
+
+### Features
+
+* add user autocmds before and after performing actions ([#310](https://github.com/stevearc/oil.nvim/issues/310)) ([e462a34](https://github.com/stevearc/oil.nvim/commit/e462a3446505185adf063566f5007771b69027a1))
+
+
+### Bug Fixes
+
+* output suppressed when opening files ([#348](https://github.com/stevearc/oil.nvim/issues/348)) ([6c48ac7](https://github.com/stevearc/oil.nvim/commit/6c48ac7dc679c5694a2c0375a5e67773e31d8157))
+* **ssh:** escape all file paths for the ssh adapter ([#353](https://github.com/stevearc/oil.nvim/issues/353)) ([8bb35eb](https://github.com/stevearc/oil.nvim/commit/8bb35eb81a48f14c4a1ef480c2bbb87ceb7cd8bb))
+
+## [2.7.0](https://github.com/stevearc/oil.nvim/compare/v2.6.1...v2.7.0) (2024-03-13)
+
+
+### Features
+
+* add ability to alter lsp file operation timeout ([#317](https://github.com/stevearc/oil.nvim/issues/317)) ([29a06fc](https://github.com/stevearc/oil.nvim/commit/29a06fcc906f57894c1bc768219ba590e03d1121))
+* add border config for SSH and keymaps help window ([#299](https://github.com/stevearc/oil.nvim/issues/299)) ([e27cc4e](https://github.com/stevearc/oil.nvim/commit/e27cc4e13812f96c0851de67015030a823cc0fbd))
+* do not close preview when switching dirs ([#277](https://github.com/stevearc/oil.nvim/issues/277)) ([bf753c3](https://github.com/stevearc/oil.nvim/commit/bf753c3e3f8736939ad5597f92329dfe7b1df4f5))
+* experimental option to watch directory for changes ([#292](https://github.com/stevearc/oil.nvim/issues/292)) ([bcfe7d1](https://github.com/stevearc/oil.nvim/commit/bcfe7d1ec5bbf41dd78726f579a363028d208c1a))
+* use natural sort order by default ([#328](https://github.com/stevearc/oil.nvim/issues/328)) ([71b076b](https://github.com/stevearc/oil.nvim/commit/71b076b3afb40663222564c74162db555aeee62d))
+
+
+### Bug Fixes
+
+* actions.open_external uses explorer.exe in WSL ([#273](https://github.com/stevearc/oil.nvim/issues/273)) ([6953c2c](https://github.com/stevearc/oil.nvim/commit/6953c2c17d8ae7454b28c44c8767eebede312e6f))
+* close preview window when leaving oil buffer ([#296](https://github.com/stevearc/oil.nvim/issues/296)) ([132b4ea](https://github.com/stevearc/oil.nvim/commit/132b4ea0740c417b9d717411cab4cf187e1fd095))
+* correctly reset bufhidden for formerly previewed buffers ([#291](https://github.com/stevearc/oil.nvim/issues/291)) ([0de8e60](https://github.com/stevearc/oil.nvim/commit/0de8e60e3d8d3d1ff9378526b4722f1ea326e1cb))
+* potential leak in experimental file watcher ([c437f3c](https://github.com/stevearc/oil.nvim/commit/c437f3c5b0da0a9cc6a222d87212cce11b80ba75))
+* spurious exits from faulty :wq detection ([#221](https://github.com/stevearc/oil.nvim/issues/221)) ([e045ee3](https://github.com/stevearc/oil.nvim/commit/e045ee3b4e06cafd7a6a2acac10f2558e611eaf8))
+* window options sometimes not set in oil buffer ([#287](https://github.com/stevearc/oil.nvim/issues/287)) ([17d71eb](https://github.com/stevearc/oil.nvim/commit/17d71eb3d88a79dbc87c6245f8490853a5c38092))
+* **windows:** can delete non-ascii filenames to trash ([#323](https://github.com/stevearc/oil.nvim/issues/323)) ([18dfd24](https://github.com/stevearc/oil.nvim/commit/18dfd2458dc741fea683357a17aaa95870b25a3c))
+
 ## [2.6.1](https://github.com/stevearc/oil.nvim/compare/v2.6.0...v2.6.1) (2024-01-16)
 
 

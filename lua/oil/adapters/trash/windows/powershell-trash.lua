@@ -10,10 +10,8 @@ local Powershell = require("oil.adapters.trash.windows.powershell-connection")
 
 local M = {}
 
--- The first line configures Windows Powershell to use UTF-8 for input and output
 -- 0xa is the constant for Recycle Bin. See https://learn.microsoft.com/en-us/windows/win32/api/shldisp/ne-shldisp-shellspecialfolderconstants
 local list_entries_init = [[
-$OutputEncoding = [Console]::InputEncoding = [Console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 $shell = New-Object -ComObject 'Shell.Application'
 $folder = $shell.NameSpace(0xa)
 ]]
@@ -35,7 +33,7 @@ ConvertTo-Json $data -Compress
 ---@type nil|oil.PowershellConnection
 local list_entries_powershell
 
----@param cb fun(err?: string, raw_entries: oil.WindowsRawEntry[]?)
+---@param cb fun(err?: string, raw_entries?: oil.WindowsRawEntry[])
 M.list_raw_entries = function(cb)
   if not list_entries_powershell then
     list_entries_powershell = Powershell.new(list_entries_init)

@@ -1,7 +1,6 @@
 local config = require("oil.config")
 local constants = require("oil.constants")
 local util = require("oil.util")
-local has_devicons, devicons = pcall(require, "nvim-web-devicons")
 local M = {}
 
 local FIELD_NAME = constants.FIELD_NAME
@@ -202,33 +201,34 @@ M.perform_change_action = function(adapter, action, callback)
   column.perform_action(action, callback)
 end
 
-if has_devicons then
+local icon_provider = util.get_icon_provider()
+if icon_provider then
   M.register("icon", {
     render = function(entry, conf)
-      local type = entry[FIELD_TYPE]
+      local field_type = entry[FIELD_TYPE]
       local name = entry[FIELD_NAME]
       local meta = entry[FIELD_META]
-      if type == "link" and meta then
+      if field_type == "link" and meta then
         if meta.link then
           name = meta.link
         end
         if meta.link_stat then
-          type = meta.link_stat.type
+          field_type = meta.link_stat.type
         end
       end
-      local icon, hl
-      if type == "directory" then
-        icon = conf and conf.directory or ""
-        hl = "OilDirIcon"
-      else
-        if meta and meta.display_name then
-          name = meta.display_name
-        end
-        icon, hl = devicons.get_icon(name)
-        icon = icon or (conf and conf.default_file or "")
+      if meta and meta.display_name then
+        name = meta.display_name
       end
+      local icon, hl = icon_provider(field_type, name, conf)
       if not conf or conf.add_padding ~= false then
         icon = icon .. " "
+      end
+      if conf and conf.highlight then
+        if type(conf.highlight) == "function" then
+          hl = conf.highlight(icon)
+        else
+          hl = conf.highlight
+        end
       end
       return { icon, hl }
     end,
@@ -279,6 +279,10 @@ M.register("type", {
   end,
 })
 
+local function pad_number(int)
+  return string.format("%012d", int)
+end
+
 M.register("name", {
   render = function(entry, conf)
     error("Do not use the name column. It is for sorting only")
@@ -289,7 +293,17 @@ M.register("name", {
   end,
 
   get_sort_value = function(entry)
-    return entry[FIELD_NAME]
+    local sort_value = entry[FIELD_NAME]
+
+    if config.view_options.natural_order then
+      sort_value = sort_value:gsub("%d+", pad_number)
+    end
+
+    if config.view_options.case_insensitive then
+      sort_value = sort_value:lower()
+    end
+
+    return sort_value
   end,
 })
 
